@@ -17,6 +17,7 @@ zone_name     = "roboshop.internal"
 iam_role_name = "dev-ec2-instance-role"
 # iam_instance_profile_name = "dev-ec2-instance-profile" 
 
+# Define the IAM actions required for the EC2 instances, ensure AWS Managed Roles are supplied in the iam.tf
 iam_actions = [
   "ec2:DescribeKeyPairs",
   "ec2:StartInstances",
@@ -33,7 +34,6 @@ iam_actions = [
   "s3:PutObjectAcl",
   "ssmmessages:CreateControlChannel",
   "ssmmessages:CreateDataChannel",
-  "AmazonSSMManagedInstanceCore",
   "logs:CreateLogGroup",
   "logs:CreateLogStream",
   "logs:PutLogEvents",

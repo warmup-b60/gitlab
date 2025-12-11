@@ -34,11 +34,11 @@ resource "aws_iam_role_policy_attachment" "custom_policy_attachment" {
   policy_arn = aws_iam_policy.custom_ec2_policy.arn
 }
 
-# Attach managed policies (add or modify as needed)
-# resource "aws_iam_role_policy_attachment" "ec2_attach_AmazonEC2ReadOnlyAccess" {
-#   role       = aws_iam_role.ec2_instance_role.name
-#   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
-# }
+# Mandatory AWS managed policy for SSM
+resource "aws_iam_role_policy_attachment" "ssm_managed_core" {
+  role       = aws_iam_role.ec2_instance_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
 
 # Add more aws_iam_role_policy_attachment resources here for other policies as needed
 resource "aws_iam_instance_profile" "ec2_instance_profile" {

@@ -23,6 +23,10 @@ iam_actions = [
   "ec2:StopInstances",
   "ec2:RunInstances",
   "ec2:RebootInstances",
+  "ec2:TerminateInstances",
+  "ec2:DescribeInstances",
+  "ec2:DescribeTags",
+  "ec2:CreateTags",
   "s3:PutObject",
   "s3:GetObject",
   "s3:GetObjectAcl",
@@ -31,6 +35,10 @@ iam_actions = [
   "ssmmessages:CreateDataChannel",
   "logs:CreateLogGroup",
   "logs:CreateLogStream",
-  "logs:PutLogEvents"
+  "logs:PutLogEvents",
+  "logs:DescribeLogStreams",
+  "logs:DescribeLogGroups",
+  "logs:PutRetentionPolicy",
+
   # Add more actions here
 ]

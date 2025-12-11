@@ -21,14 +21,8 @@ resource "aws_iam_policy" "custom_ec2_policy" {
     Version = "2012-10-17"
     Statement = [
       {
-        Effect = "Allow"
-        Action = [
-          "ec2:DescribeKeyPairs",
-          "ec2:StartInstances",
-          "s3:PutObject",
-          "ssmmessages:CreateControlChannel"
-          # Add more actions here as needed
-        ]
+        Effect   = "Allow"
+        Action   = locals.iam_actions
         Resource = "*"
       }
     ]

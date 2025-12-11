@@ -1,8 +1,12 @@
 
-output "iam_role_name" {
-  value = aws_iam_role.ec2_instance_role.name
+# output "iam_role_name" {
+#   value = aws_iam_role.ec2_instance_role.name
+# }
+
+output "agent_iam_instance_profile_name" {
+  value = aws_iam_instance_profile.agent_iam_instance_profile_name.name
 }
 
-output "iam_instance_profile_name" {
-  value = aws_iam_instance_profile.ec2_instance_profile.name
+output "worker_iam_instance_profile_name" {
+  value = aws_iam_instance_profile.worker_ec2_instance_profile_name.name
 }

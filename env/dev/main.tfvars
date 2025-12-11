@@ -33,7 +33,7 @@ iam_actions = [
   "s3:PutObjectAcl",
   "ssmmessages:CreateControlChannel",
   "ssmmessages:CreateDataChannel",
-  "managedpolicy/AmazonSSMManagedInstanceCore",
+  "AmazonSSMManagedInstanceCore",
   "logs:CreateLogGroup",
   "logs:CreateLogStream",
   "logs:PutLogEvents",

@@ -22,7 +22,7 @@ resource "aws_iam_policy" "custom_ec2_policy" {
     Statement = [
       {
         Effect   = "Allow"
-        Action   = locals.iam_actions
+        Action   = local.iam_actions
         Resource = "*"
       }
     ]

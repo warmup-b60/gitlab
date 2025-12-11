@@ -5,7 +5,7 @@ instances = {
   }
   mongodb = {
     instance_type = "t2.micro"
-    ami_id        = "ami-0fcc78c828f981df2"
+    ami_id        = "ami-072983368f2a6eab5"
   }
   catalogue = {
     instance_type = "t3.micro"

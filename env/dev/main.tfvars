@@ -41,3 +41,12 @@ agent_iam_actions = [
   "logs:DescribeLogGroups",
   "logs:PutRetentionPolicy",
 ]
+
+worker_iam_actions = [
+  "logs:CreateLogGroup",
+  "logs:CreateLogStream",
+  "logs:PutLogEvents",
+  "logs:DescribeLogStreams",
+  "logs:DescribeLogGroups",
+  "logs:PutRetentionPolicy",
+]

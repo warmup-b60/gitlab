@@ -1,11 +1,17 @@
 
-variable "iam_role_name" {
+variable "agent_iam_role_name" {
   description = "Name of the IAM role to be created and attached to EC2 instances."
   type        = string
 }
 
 variable "agent_iam_actions" {
   description = "List of IAM actions to allow in the custom policy by agent"
+  type        = list(string)
+  default     = []
+}
+
+variable "worker_iam_actions" {
+  description = "List of IAM actions to allow in the custom policy by worker"
   type        = list(string)
   default     = []
 }

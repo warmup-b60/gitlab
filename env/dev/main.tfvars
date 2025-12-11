@@ -3,7 +3,7 @@ instances = {
     instance_type = "t3.micro"
   }
   mongodb = {
-    instance_type = "te.micro"
+    instance_type = "t2.micro"
   }
   catalogue = {
     instance_type = "t3.micro"

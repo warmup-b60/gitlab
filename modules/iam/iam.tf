@@ -13,11 +13,38 @@ resource "aws_iam_role" "ec2_instance_role" {
   })
 }
 
-# Attach managed policies (add or modify as needed)
-resource "aws_iam_role_policy_attachment" "ec2_attach_AmazonEC2ReadOnlyAccess" {
-  role       = aws_iam_role.ec2_instance_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
+# Custom inline policy for specific permissions
+resource "aws_iam_policy" "custom_ec2_policy" {
+  name        = "${var.iam_role_name}-custom-policy"
+  description = "Custom policy for EC2, S3, and SSM actions"
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "ec2:DescribeKeyPairs",
+          "ec2:StartInstances",
+          "s3:PutObject",
+          "ssmmessages:CreateControlChannel"
+          # Add more actions here as needed
+        ]
+        Resource = "*"
+      }
+    ]
+  })
 }
+
+resource "aws_iam_role_policy_attachment" "custom_policy_attachment" {
+  role       = aws_iam_role.ec2_instance_role.name
+  policy_arn = aws_iam_policy.custom_ec2_policy.arn
+}
+
+# Attach managed policies (add or modify as needed)
+# resource "aws_iam_role_policy_attachment" "ec2_attach_AmazonEC2ReadOnlyAccess" {
+#   role       = aws_iam_role.ec2_instance_role.name
+#   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
+# }
 
 # Add more aws_iam_role_policy_attachment resources here for other policies as needed
 resource "aws_iam_instance_profile" "ec2_instance_profile" {

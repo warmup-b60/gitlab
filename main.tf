@@ -13,9 +13,9 @@ module "ec2" {
 
 
 module "iam" {
-  source             = "./modules/iam"
-  iam_role_name      = var.iam_role_name
-  agent_iam_actions  = var.agent_iam_actions
-  worker_iam_actions = var.worker_iam_actions
+  source               = "./modules/iam"
+  agent_iam_role_name  = var.agent_iam_role_name
+  agent_iam_actions    = var.agent_iam_actions
+  worker_iam_role_name = var.worker_iam_role_name
+  worker_iam_actions   = var.worker_iam_actions
 }
-

@@ -12,6 +12,7 @@ module "ec2" {
 
 
 module "iam" {
-  source = "./modules/iam"
+  source        = "./modules/iam"
+  iam_role_name = var.iam_role_name
 }
 

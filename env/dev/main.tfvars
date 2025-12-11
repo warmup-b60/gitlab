@@ -1,18 +1,19 @@
 instances = {
   frontend = {
     instance_type = "t3.micro"
-    ami_id        = "0fcc78c828f981df2"
+    ami_id        = "ami-0fcc78c828f981df2"
   }
   mongodb = {
     instance_type = "t2.micro"
-    ami_id        = "0fcc78c828f981df2"
+    ami_id        = "ami-0fcc78c828f981df2"
   }
   catalogue = {
     instance_type = "t3.micro"
-    ami_id        = "0fcc78c828f981df2"
+    ami_id        = "ami-0fcc78c828f981df2"
   }
 }
 
+ami_id               = "ami-0fcc78c828f981df2"
 env                  = "dev"
 zone_id              = "Z056682820YKODKLCFUIZ"
 zone_name            = "roboshop.internal"

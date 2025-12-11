@@ -15,6 +15,3 @@ module "iam" {
   source = "./modules/iam"
 }
 
-output "iam_output" {
-  value = module.iam.iam
-}

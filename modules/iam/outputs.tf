@@ -1,10 +1,9 @@
-
 output "agent_iam_role_name" {
-  value = aws_iam_role.agent_iam_role_name.name
+  value = aws_iam_role.agent_instance_role.name
 }
 
 output "worker_iam_role_name" {
-  value = aws_iam_role.worker_iam_role_name.name
+  value = aws_iam_role.worker_instance_role.name
 }
 
 output "agent_iam_instance_profile_name" {

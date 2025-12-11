@@ -10,11 +10,12 @@ instances = {
   }
 }
 
-ami_id        = "ami-0fcc78c828f981df2"
-env           = "dev"
-zone_id       = "Z056682820YKODKLCFUIZ"
-zone_name     = "roboshop.internal"
-iam_role_name = "dev-ec2-instance-role"
+ami_id               = "ami-0fcc78c828f981df2"
+env                  = "dev"
+zone_id              = "Z056682820YKODKLCFUIZ"
+zone_name            = "roboshop.internal"
+agent_iam_role_name  = "dev-agent-ec2-instance-role"
+worker_iam_role_name = "dev-worker-ec2-instance-role"
 # iam_instance_profile_name = "dev-ec2-instance-profile" 
 
 # Define the IAM actions required for the EC2 instances, ensure AWS Managed Roles are supplied in the iam.tf

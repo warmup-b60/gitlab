@@ -1,4 +1,4 @@
-instances = {
+agents = {
   frontend = {
     instance_type = "t3.micro"
     ami_id        = "ami-0fcc78c828f981df2"

@@ -5,7 +5,7 @@ resource "aws_instance" "main" {
   vpc_security_group_ids = [var.security_group_id]
 
   # Attach IAM instance profile if provided
-  iam_instance_profile = var.iam_instance_profile_name != null ? var.iam_instance_profile_name : null
+  iam_instance_profile = var.iam_instance_profile_name
 
   tags = {
     Name = "${var.name}-${var.env}"

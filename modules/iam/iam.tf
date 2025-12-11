@@ -13,7 +13,7 @@ resource "aws_iam_role" "ec2_instance_role" {
   })
 }
 
-# Custom inline policy for specific permissions
+# Custom inline policy for specific permissions on EC2, S3, and SSM
 resource "aws_iam_policy" "custom_ec2_policy" {
   name        = "${var.iam_role_name}-custom-policy"
   description = "Custom policy for EC2, S3, and SSM actions"

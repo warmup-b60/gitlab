@@ -9,11 +9,11 @@ instances = {
   }
   catalogue = {
     instance_type = "t3.micro"
-    ami_id        = "ami-0fcc78c828f981df2"
+    ami_id        = "ami-072983368f2a6eab5"
   }
 }
 
-ami_id               = "ami-0fcc78c828f981df2"
+# ami_id               = "ami-0fcc78c828f981df2"
 env                  = "dev"
 zone_id              = "Z056682820YKODKLCFUIZ"
 zone_name            = "roboshop.internal"

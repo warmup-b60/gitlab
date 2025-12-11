@@ -9,7 +9,7 @@ module "ec2" {
   zone_id                         = var.zone_id
   zone_name                       = var.zone_name
   agent_iam_instance_profile_name = module.iam.agent_iam_instance_profile_name
-  worker_ami_id                   = var.worker_ami_id
+  worker_ami_id                   = data.aws_ami.worker_ami.id
 }
 
 

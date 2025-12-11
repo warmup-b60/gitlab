@@ -6,6 +6,4 @@ variable "agent_iam_role_name" {}
 variable "agent_iam_actions" {}
 variable "worker_iam_role_name" {}
 variable "worker_iam_actions" {}
-variable "worker_ami_id" {
-  default = data.aws_ami.worker_ami.id
-}
+# variable "worker_ami_id" {}

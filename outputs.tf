@@ -16,5 +16,5 @@ output "worker_iam_instance_profile_name" {
 
 # Worker AMI ID output
 output "worker_ami_id" {
-  value = module.ec2.worker_ami_id.value
+  value = data.aws_ami.worker_ami.id
 }

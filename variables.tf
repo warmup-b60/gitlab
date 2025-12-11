@@ -4,6 +4,6 @@ variable "env" {}
 variable "zone_id" {}
 variable "zone_name" {}
 variable "iam_role_name" {}
-variable "iam_actions" {
+variable "agent_iam_actions" {
 
 }

@@ -4,8 +4,8 @@ variable "iam_role_name" {
   type        = string
 }
 
-variable "iam_actions" {
-  description = "List of IAM actions to allow in the custom policy"
+variable "agent_iam_actions" {
+  description = "List of IAM actions to allow in the custom policy by agent"
   type        = list(string)
   default     = []
 }

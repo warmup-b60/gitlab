@@ -18,7 +18,7 @@ iam_role_name = "dev-ec2-instance-role"
 # iam_instance_profile_name = "dev-ec2-instance-profile" 
 
 # Define the IAM actions required for the EC2 instances, ensure AWS Managed Roles are supplied in the iam.tf
-iam_actions = [
+agent_iam_actions = [
   "ec2:DescribeKeyPairs",
   "ec2:StartInstances",
   "ec2:StopInstances",
@@ -40,6 +40,4 @@ iam_actions = [
   "logs:DescribeLogStreams",
   "logs:DescribeLogGroups",
   "logs:PutRetentionPolicy",
-
-  # Add more actions here
 ]

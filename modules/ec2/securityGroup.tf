@@ -36,19 +36,19 @@ resource "aws_security_group" "worker_sg" {
   description = "Allow SSH & HTTPS inbound traffic"
 
   ingress {
-    description = "Allows SSH access"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [aws_security_group.agent_sg.id]
+    description               = "Allows SSH access"
+    from_port                 = 22
+    to_port                   = 22
+    protocol                  = "tcp"
+    source_security_group_ids = [aws_security_group.agent_sg.id]
   }
 
   ingress {
-    description = "Allows App Access"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = [aws_security_group.agent_sg.id]
+    description               = "Allows App Access"
+    from_port                 = 443
+    to_port                   = 443
+    protocol                  = "tcp"
+    source_security_group_ids = [aws_security_group.agent_sg.id]
   }
 
   egress {

@@ -24,7 +24,7 @@ resource "aws_instance" "worker" {
   vpc_security_group_ids = [aws_security_group.worker_sg.id]
 
   # Attach IAM instance profile if provided
-  iam_instance_profile = var.agent_iam_instance_profile_name
+  # iam_instance_profile = var.agent_iam_instance_profile_name
 
   tags = {
     Name = "${var.name}-agent-${var.env}"

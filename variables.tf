@@ -1,8 +1,32 @@
-variable "agents" {}
-variable "env" {}
-variable "zone_id" {}
-variable "zone_name" {}
-variable "agent_iam_role_name" {}
-variable "agent_iam_actions" {}
-variable "worker_iam_role_name" {}
-variable "worker_iam_actions" {}
+variable "agents" {
+  type        = list(string)
+  description = "Input of the instanec to be provision"
+}
+variable "env" {
+  type        = string
+  description = "Environment name"
+}
+variable "zone_id" {
+  type        = string
+  description = "Zone ID"
+}
+variable "zone_name" {
+  type        = string
+  description = "Zone name"
+}
+variable "agent_iam_role_name" {
+  type        = string
+  description = "IAM role name for agents"
+}
+variable "agent_iam_actions" {
+  type        = list(string)
+  description = "IAM actions for agents"
+}
+variable "worker_iam_role_name" {
+  type        = string
+  description = "IAM role name for workers"
+}
+variable "worker_iam_actions" {
+  type        = list(string)
+  description = "IAM actions for workers"
+}

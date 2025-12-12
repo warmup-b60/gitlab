@@ -35,23 +35,6 @@ resource "aws_security_group" "agent_sg" {
 resource "aws_security_group" "worker_sg" {
   name        = "${var.name}-${var.env}-worker-sg"
   description = "Allow SSH & HTTPS inbound traffic"
-
-  ingress {
-    description              = "Allows SSH access"
-    from_port                = 22
-    to_port                  = 22
-    protocol                 = "tcp"
-    source_security_group_id = aws_security_group.agent_sg.id
-  }
-
-  ingress {
-    description              = "Allows App Access"
-    from_port                = 443
-    to_port                  = 443
-    protocol                 = "tcp"
-    source_security_group_id = aws_security_group.agent_sg.id
-  }
-
   egress {
     from_port   = 0
     to_port     = 0
@@ -62,4 +45,22 @@ resource "aws_security_group" "worker_sg" {
   tags = {
     Name = "${var.name}-${var.env}-worker-sg"
   }
+}
+
+resource "aws_security_group_rule" "worker_allow_ssh_from_agent" {
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.worker_sg.id
+  source_security_group_id = aws_security_group.agent_sg.id
+}
+
+resource "aws_security_group_rule" "worker_allow_443_from_agent" {
+  type                     = "ingress"
+  from_port                = 443
+  to_port                  = 443
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.worker_sg.id
+  source_security_group_id = aws_security_group.agent_sg.id
 }

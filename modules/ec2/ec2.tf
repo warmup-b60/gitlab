@@ -8,7 +8,7 @@ resource "aws_instance" "agent" {
   iam_instance_profile = var.agent_iam_instance_profile_name
 
   tags = {
-    Name = "${var.name}-${var.env}"
+    Name = "${var.name}-${var.env}-agent"
   }
 }
 

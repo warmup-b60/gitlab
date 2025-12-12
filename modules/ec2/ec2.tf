@@ -27,6 +27,6 @@ resource "aws_instance" "worker" {
   # iam_instance_profile = var.agent_iam_instance_profile_name;
 
   tags = {
-    Name = "${var.name}-agent-${var.env}"
+    Name = "${var.name}-${var.env}-worker"
   }
 }

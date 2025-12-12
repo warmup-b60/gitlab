@@ -15,6 +15,6 @@ output "worker_iam_instance_profile_name" {
 }
 
 # Worker AMI ID output : Fix this
-# output "worker_ami_id" {
-#   value = module.ec2.worker_ami_id
-# }
+output "worker_ami_id" {
+  value = module.ec2.worker_ami_id
+}

@@ -1,6 +1,9 @@
 variable "agents" {
   description = "Map of agent configurations"
-  type        = map(object({}))
+  type = map(object({
+    instance_type = string
+    ami_id        = string
+  }))
 }
 variable "env" {
   type        = string

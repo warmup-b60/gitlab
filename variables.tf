@@ -6,9 +6,3 @@ variable "agent_iam_role_name" {}
 variable "agent_iam_actions" {}
 variable "worker_iam_role_name" {}
 variable "worker_iam_actions" {}
-
-# variable "worker_ami_id" {}
-# variable "worker_ami_id" {
-#   description = "AMI ID for worker"
-#   type        = string
-# }

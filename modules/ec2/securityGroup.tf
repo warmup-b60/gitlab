@@ -1,5 +1,5 @@
 resource "aws_security_group" "agent_allow_internal_pors" {
-  name        = "allow_tls"
+  name        = "${var.name}-${var.env}-sg"
   description = "Allow inbound traffic and  outbound traffic"
 
   tags = {

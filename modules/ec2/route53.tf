@@ -3,5 +3,5 @@ resource "aws_route53_record" "roboshop" {
   name    = "${var.name}-${var.env}"
   type    = "A"
   ttl     = "10"
-  records = [aws_instance.main.private_ip]
+  records = [aws_instance.agent.private_ip]
 }

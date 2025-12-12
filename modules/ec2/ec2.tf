@@ -18,15 +18,15 @@ variable "security_group_id" {
   default     = "sg-057e0b9b259713373"
 }
 
-# resource "aws_instance" "worker" {
-#   ami                    = var.worker_ami_id
-#   instance_type          = var.instance_type
-#   vpc_security_group_ids = [var.security_group_id]
+resource "aws_instance" "worker" {
+  ami                    = var.worker_ami_id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.worker_sg.id]
 
-#   # Attach IAM instance profile if provided
-#   iam_instance_profile = var.agent_iam_instance_profile_name
+  # Attach IAM instance profile if provided
+  iam_instance_profile = var.agent_iam_instance_profile_name
 
-#   tags = {
-#     Name = "${var.name}-agent-${var.env}"
-#   }
-# }
+  tags = {
+    Name = "${var.name}-agent-${var.env}"
+  }
+}

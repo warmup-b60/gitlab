@@ -13,7 +13,3 @@ output "agent_iam_instance_profile_name" {
 output "worker_iam_instance_profile_name" {
   value = module.iam.worker_iam_instance_profile_name
 }
-
-# output "worker_ami_id" {
-#   value = data.aws_ami.worker_ami.id
-# }

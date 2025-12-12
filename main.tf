@@ -9,9 +9,8 @@ module "ec2" {
   zone_id                         = var.zone_id
   zone_name                       = var.zone_name
   agent_iam_instance_profile_name = module.iam.agent_iam_instance_profile_name
-  # worker_ami_id                   = local.worker_ami_id
+  worker_ami_id                   = data.aws_ami.worker_ami.id
 }
-
 
 module "iam" {
   source               = "./modules/iam"
@@ -20,3 +19,4 @@ module "iam" {
   worker_iam_role_name = var.worker_iam_role_name
   worker_iam_actions   = var.worker_iam_actions
 }
+

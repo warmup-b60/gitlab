@@ -1,30 +1,32 @@
-resource "aws_security_group" "agent_allow_internal_pors" {
+resource "aws_security_group" "agent_sg" {
   name        = "${var.name}-${var.env}-sg"
-  description = "Allow inbound traffic and  outbound traffic"
+  description = "Allow SSH & HTTPS inbound traffic"
+
+  ingress {
+    description = "Allows SSH access"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Allows App Access"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   tags = {
     Name = "${var.name}-${var.env}-sg"
   }
-}
-
-resource "aws_vpc_security_group_ingress_rule" "agent_allow_tls_ipv4" {
-  security_group_id = aws_security_group.agent_allow_internal_pors.id
-  cidr_ipv4         = "0.0.0.0/0"
-  from_port         = 443
-  ip_protocol       = "tcp"
-  to_port           = 443
-}
-
-resource "aws_vpc_security_group_ingress_rule" "agent_allow_ssh_ipv6" {
-  security_group_id = aws_security_group.agent_allow_internal_pors.id
-  cidr_ipv4         = "0.0.0.0/0"
-  from_port         = 22
-  ip_protocol       = "tcp"
-  to_port           = 22
-}
-
-resource "aws_vpc_security_group_egress_rule" "agent_all_traffic_ipv4" {
-  security_group_id = aws_security_group.agent_allow_internal_pors.id
-  cidr_ipv4         = "0.0.0.0/0"
-  ip_protocol       = "-1" # semantically equivalent to all ports
 }

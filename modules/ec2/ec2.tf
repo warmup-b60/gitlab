@@ -2,7 +2,7 @@
 resource "aws_instance" "agent" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
-  vpc_security_group_ids = [aws_security_group.agent_allow_internal_pors.id]
+  vpc_security_group_ids = [aws_security_group.agent_sg.id]
 
   # Attach IAM instance profile if provided
   iam_instance_profile = var.agent_iam_instance_profile_name

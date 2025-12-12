@@ -27,6 +27,6 @@ resource "aws_security_group" "agent_sg" {
   }
 
   tags = {
-    Name = "${var.name}-${var.env}-sg"
+    Name = "${var.name}-${var.env}-agent-sg"
   }
 }

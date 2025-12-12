@@ -2,3 +2,7 @@
 output "worker_ami-id" {
   value = var.worker_ami_id
 }
+
+output "agent_sd_id" {
+  value = aws_security_group.agent_sg.id
+}

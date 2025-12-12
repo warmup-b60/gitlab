@@ -1,6 +1,10 @@
 variable "agents" {
-  type        = list(string)
-  description = "Input of the instanec to be provision"
+  description = "Map of agent configurations"
+  type = map(object({
+    instance_type = string
+    ami_id        = string
+    key_name      = string
+  }))
 }
 variable "env" {
   type        = string

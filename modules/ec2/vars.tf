@@ -11,8 +11,3 @@ variable "agent_iam_instance_profile_name" {
   type        = string
   default     = null
 }
-
-variable "worker_ami_id" {
-  description = "AMI ID for worker"
-  type        = string
-}

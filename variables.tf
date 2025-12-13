@@ -3,6 +3,12 @@ variable "agents" {
   type = map(object({
     instance_type = string
     ami_id        = string
+    agent_ingress_rules = list(object({
+      from_port   = number
+      to_port     = number
+      protocol    = string
+      cidr_blocks = list(string)
+    })) 
   }))
 }
 variable "env" {

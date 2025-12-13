@@ -14,8 +14,15 @@ agents = {
         from_port   = 443
         to_port     = 443
         protocol    = "tcp"
-        description = "Allow HTTP for testing"
+        description = "Allow HTTPS for testing"
         cidr_blocks = ["0.0.0.0/0"]
+      }
+      {
+        from_port   = 80
+        to_port     = 80
+        protocol    = "tcp"
+        description = "Allow HTTP for testing"
+        cidr_blocks = ["172.0.0.0/24"]
       }
     ]
   }

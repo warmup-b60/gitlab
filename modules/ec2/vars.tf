@@ -23,7 +23,7 @@ variable "agent_ingress_rules" {
     from_port   = number
     to_port     = number
     protocol    = string
-    description = optional(string)
+    description = string
     cidr_blocks = list(string)
   }))
   default = []

@@ -16,9 +16,3 @@ variable "worker_ami_id" {
   description = "AMI ID for worker"
   type        = string
 }
-
-variable "allowed_agent_sg_ids" {
-  description = "List of agent security group IDs allowed to access worker"
-  type        = list(string)
-  default     = []
-}

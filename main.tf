@@ -10,7 +10,6 @@ module "ec2" {
   zone_name                       = var.zone_name
   agent_iam_instance_profile_name = module.iam.agent_iam_instance_profile_name
   worker_ami_id                   = data.aws_ami.worker_ami.id
-  allowed_agent_sg_ids            = [for k, m in module.ec2 : m.agent_sg_id]
 }
 
 module "iam" {

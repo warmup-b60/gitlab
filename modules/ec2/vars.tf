@@ -17,14 +17,16 @@ variable "worker_ami_id" {
   type        = string
 }
 
-variable "agent_ingress_rules" {
-  description = "A list of ingress rules for the agent security group"
-  type = list(object({
-    from_port   = number
-    to_port     = number
-    protocol    = string
-    description = string
-    cidr_blocks = list(string)
+variable "agents" {
+  type = map(object({
+    instance_type       = string
+    ami_id              = string
+    agent_ingress_rules = list(object({
+      from_port   = number
+      to_port     = number
+      protocol    = string
+      description = string
+      cidr_blocks = list(string)
+    }))
   }))
-  default = []
 }

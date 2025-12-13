@@ -17,7 +17,7 @@ variable "worker_ami_id" {
   type        = string
 }
 
-variable "agents" {
+variable "agent_ingress_rules" {
   type = map(object({
     instance_type       = string
     ami_id              = string

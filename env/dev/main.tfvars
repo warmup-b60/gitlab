@@ -36,6 +36,13 @@ agents = {
         protocol    = "tcp"
         description = "Allow SSH from anywhere"
         cidr_blocks = ["0.0.0.0/0"]
+      },
+      {
+        from_port   = 27017
+        to_port     = 27017
+        protocol    = "tcp"
+        description = "Allow MongoDB from anywhere"
+        cidr_blocks =  ["0.0.0.0/0"]
       }
     ]
   }

@@ -2,20 +2,15 @@ resource "aws_security_group" "agent_sg" {
   name        = "${var.name}-${var.env}-agent-sg"
   description = "Allow SSH & HTTPS inbound traffic"
 
-  ingress {
-    description = "Allows SSH access"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description = "Allows App Access"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+  dynamic "ingress" {
+    for_each = var.agent_ingress_rules
+    content {
+      description = lookup(ingress.value, "description", null)
+      from_port   = ingress.value.from_port
+      to_port     = ingress.value.to_port
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
+    }
   }
 
   egress {

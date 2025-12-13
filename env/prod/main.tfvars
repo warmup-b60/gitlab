@@ -1,6 +1,15 @@
 agents = {
   frontend = {
     instance_type = "t3.micro"
+    agent_ingress_rules = [
+      {
+        from_port   = 443
+        to_port     = 443
+        protocol    = "tcp"
+        description = "Allow HTTPS from our office"
+        cidr_blocks = ["YOUR_OFFICE_IP/32"]
+      }
+    ]
   }
   mongodb = {
     instance_type = "t3.micro"

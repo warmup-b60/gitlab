@@ -2,10 +2,35 @@ agents = {
   frontend = {
     instance_type = "t3.micro"
     ami_id        = "ami-0fcc78c828f981df2"
+    agent_ingress_rules = [
+      {
+        from_port   = 22
+        to_port     = 22
+        protocol    = "tcp"
+        description = "Allow SSH from anywhere"
+        cidr_blocks = ["0.0.0.0/0"]
+      },
+      {
+        from_port   = 443
+        to_port     = 443
+        protocol    = "tcp"
+        description = "Allow HTTP for testing"
+        cidr_blocks = ["0.0.0.0/0"]
+      }
+    ]
   }
   mongodb = {
     instance_type = "t2.micro"
     ami_id        = "ami-072983368f2a6eab5"
+    agent_ingress_rules = [
+      {
+        from_port   = 22
+        to_port     = 22
+        protocol    = "tcp"
+        description = "Allow SSH from anywhere"
+        cidr_blocks = ["0.0.0.0/0"]
+      }
+    ]
   }
   # catalogue = {
   #   instance_type = "t3.micro"

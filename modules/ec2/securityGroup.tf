@@ -5,7 +5,7 @@ resource "aws_security_group" "agent_sg" {
   dynamic "ingress" {
     for_each = var.agent_ingress_rules
     content {
-      description = lookup(ingress.value, "description", null)
+      description = ingress.value.description
       from_port   = ingress.value.from_port
       to_port     = ingress.value.to_port
       protocol    = ingress.value.protocol

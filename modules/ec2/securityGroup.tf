@@ -48,12 +48,18 @@ resource "aws_security_group" "worker_sg" {
 }
 
 resource "aws_security_group_rule" "worker_allow_ssh_from_agent" {
-  type                     = "ingress"
-  from_port                = 22
-  to_port                  = 22
-  protocol                 = "tcp"
-  security_group_id        = aws_security_group.worker_sg.id
-  source_security_group_id = aws_security_group.agent_sg.id
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  security_group_id = aws_security_group.worker_sg.id
+
+  dynamic "source_security_group_id" {
+    for_each = var.allowed_agent_sg_ids
+    content {
+      source_security_group_id = source_security_group_id.value
+    }
+  }
 }
 
 resource "aws_security_group_rule" "worker_allow_443_from_agent" {

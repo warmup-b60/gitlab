@@ -10,9 +10,9 @@ output "agent_iam_instance_profile_name" {
   value = aws_iam_instance_profile.agent_ec2_instance_profile.name
 }
 
-# output "worker_iam_instance_profile_name" {
-#   value = aws_iam_instance_profile.worker_ec2_instance_profile.name
-# }
+output "worker_iam_instance_profile_name" {
+  value = aws_iam_instance_profile.worker_ec2_instance_profile.name
+}
 
 # output "agent_iam_role_arn" {
 #   value = aws_iam_role.agent_instance_role.arn

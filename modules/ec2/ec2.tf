@@ -5,7 +5,7 @@ resource "aws_instance" "agent" {
   vpc_security_group_ids = [aws_security_group.agent_sg.id]
 
   # Attach IAM instance profile if provided
-  iam_instance_profile = var.agent_iam_instance_profile_name
+  iam_instance_profile = try(var.agent_iam_instance_profile_name, null)
 
   tags = {
     Name = "${var.name}-${var.env}-agent"

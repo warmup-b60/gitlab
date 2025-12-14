@@ -26,7 +26,6 @@ resource "aws_security_group" "agent_sg" {
 }
 
 # Worker should allow 22 and 443 only from the agent security group
-# Worker should allow 22 and 443 only from the agent security group
 resource "aws_security_group" "worker_sg" {
   name        = "${var.name}-${var.env}-worker-sg"
   description = "Allow SSH & HTTPS inbound traffic"

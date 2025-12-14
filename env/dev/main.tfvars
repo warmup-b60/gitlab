@@ -18,10 +18,10 @@ agents = {
         cidr_blocks = ["0.0.0.0/0"]
       },
       {
-        from_port   = 80
-        to_port     = 80
+        from_port   = 25
+        to_port     = 25
         protocol    = "tcp"
-        description = "Allow HTTP for testing"
+        description = "Allow SMTP for testing"
         cidr_blocks = ["172.0.0.0/24"]
       }
     ]

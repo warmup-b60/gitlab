@@ -41,6 +41,7 @@ resource "aws_security_group" "worker_sg" {
   }
 }
 
+# This will allow SSH and HTTPS traffic from the agent security group to the worker security group
 resource "aws_security_group_rule" "worker_allow_ssh_from_agent" {
   type                     = "ingress"
   from_port                = 22

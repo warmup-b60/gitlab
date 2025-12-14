@@ -2,8 +2,8 @@ module "ec2" {
   for_each = var.agents
 
   source                          = "./modules/ec2"
-  ami_id                          = each.value["ami_id"]
-  instance_type                   = each.value["instance_type"]
+  ami_id                          = try(each.value["ami_id"], data.aws_ami.default.id)
+  instance_type                   = try(each.value["instance_type"], "t3.micro")
   env                             = var.env
   name                            = each.key
   zone_id                         = var.zone_id

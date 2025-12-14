@@ -8,6 +8,7 @@ variable "agents" {
       to_port     = number
       protocol    = string
       cidr_blocks = list(string)
+      description = optional(string)
     })) 
   }))
 }
